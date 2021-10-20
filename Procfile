@@ -1,2 +1,1 @@
-release: python manage.py migrate
-web: gunicorn companyportal.wsgi
+web: python manage.py collectstatic --no-input; gunicorn companyportal.wsgi --log-file - --log-level debug
