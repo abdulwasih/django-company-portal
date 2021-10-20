@@ -79,7 +79,12 @@ WSGI_APPLICATION = 'companyportal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'dfq388gd18t0ja',
+        'USER' : 'wqkexkmprqbdvt',
+        'PASSWORD':'002235c3e7ff6caa1da1a318021196f96c67c1ee0b68f8beada28c63a2342b8e',
+        'PORT':'5432',
+        'HOST':'ec2-35-175-17-88.compute-1.amazonaws.com',
+
     }
 }
 
