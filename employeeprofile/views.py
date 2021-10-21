@@ -35,6 +35,9 @@ def loginuser(request):
             login(request, user)
             return redirect('loggeduser')
 
+def emplog(request):
+    return render(request,'employeeprofile/employeelogin.html')
+
 @login_required
 def logoutuser(request):
     if request.method == 'POST':
