@@ -44,3 +44,12 @@ def logoutuser(request):
 @login_required
 def loggeduser(request):
     return render(request,'employeeprofile/loggeduser.html')
+
+@login_required
+def registeremp(request):
+    return render(request,'employeeprofile/registeremployee.html')
+
+@login_required
+def viewemp(request):
+    return render(request,'employeeprofile/viewemployees.html')
+

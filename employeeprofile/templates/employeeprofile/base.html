@@ -29,14 +29,14 @@
         <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item {{ current }}">
-                    <a class="nav-link" href="{% url 'home' %}">Register an employee</a>
+                    <a class="nav-link" href="{% url 'registeremp' %}">Register an Employee</a>
                 </li>
                 <li class="nav-item {{ completed }}">
-                    <a class="nav-link" href="{% url 'home' %}">View Employees</a>
+                    <a class="nav-link" href="{% url 'viewemp' %}">View Employees</a>
                 </li>
-                <li class="nav-item {{ create }}">
+                {% comment %} <li class="nav-item {{ create }}">
                     <a class="nav-link" href="{% url 'home' %}">Create</a>
-                </li>
+                </li> {% endcomment %}
 
         </ul>
     {% endif %}
