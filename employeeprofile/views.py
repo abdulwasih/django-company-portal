@@ -6,6 +6,11 @@ from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+
+from employeeprofile.tables import EmployeeTable
+from .models import Employee
+
+from employeeprofile.models import Employee
 from .forms import EmployeeForm
 
 def home(request):
@@ -62,5 +67,7 @@ def registeremp(request):
 
 @login_required
 def viewemp(request):
-    return render(request,'employeeprofile/viewemployees.html')
+
+    table = Employee.objects.all()
+    return render(request,'employeeprofile/viewemployees.html',{'table':table})
 
