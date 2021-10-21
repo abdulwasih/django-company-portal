@@ -1,14 +1,29 @@
 {% extends "employeeprofile/base.html" %}
 
 {% block content %}
-<br>
-<div class="row justify-content-center mt-5">
-        <div class="col-md-7 text-center">
-
-                 <h1>Register an Employee</h1>
-            {% comment %} <p></p>
-        <a role="button" class="btn btn-primary btn-lg" href="{% url 'loginuser' %}">Start your journey with us</a> {% endcomment %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <h2>Register an Employee</h2>
         </div>
     </div>
-
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.as_p }}
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <hr>
+            {% comment %} <div class="text-center">
+                Need an account? <a href="{% url 'signupuser' %}">Sign Up here</a>
+            </div> {% endcomment %}
+        </div>
+    </div>
 {% endblock %}

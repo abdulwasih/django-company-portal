@@ -1,3 +1,4 @@
+from django.contrib.auth import forms
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
@@ -5,6 +6,7 @@ from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from .forms import EmployeeForm
 
 def home(request):
     return render(request, 'employeeprofile/home.html')
@@ -50,7 +52,13 @@ def loggeduser(request):
 
 @login_required
 def registeremp(request):
-    return render(request,'employeeprofile/registeremployee.html')
+    form  = EmployeeForm()
+    if request.method == 'POST':
+        form = EmployeeForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {'form':form}
+    return render(request,'employeeprofile/registeremployee.html',{'form':EmployeeForm()})
 
 @login_required
 def viewemp(request):
