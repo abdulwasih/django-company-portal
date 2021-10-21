@@ -4,6 +4,7 @@ from django.db import models
 # Create your models here.
 
 class Employee(models.Model):
+    empid = models.CharField(primary_key=True,max_length=5)
     firstname = models.CharField(max_length=100,blank=False)
     lastname = models.CharField(max_length=100,blank=False)
     photo = models.ImageField(upload_to='employeeprofile/images/',default='myphoto')

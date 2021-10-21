@@ -67,7 +67,24 @@ def registeremp(request):
 
 @login_required
 def viewemp(request):
-
     table = Employee.objects.all()
     return render(request,'employeeprofile/viewemployees.html',{'table':table})
+
+# def emplogin(request):
+#     # user = Employee.objects.filter(empid=request.GET.get('empid') ,password=request.GET.get('password'))
+#     return render(request,'employeeprofile/profile.html')
+
+def emplogin(request):
+    user = Employee.objects.filter(empid=request.GET.get('empid') ,password=request.GET.get('password'))
+    return render(request,'employeeprofile/profile.html',{'user':user})
+
+# def convert(request):
+
+#     word = ''
+
+#     inputnum = request.GET.get('num')
+#     word = num2words(inputnum).capitalize()
+  
+
+#     return render(request, 'converter/convert.html', {'word':word})
 

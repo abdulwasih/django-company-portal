@@ -1,14 +1,48 @@
 {% extends "employeeprofile/base.html" %}
 
 {% block content %}
-<br>
-<div class="row justify-content-center mt-5">
-        <div class="col-md-7 text-center">
-
-                 <h1>Employee Login</h1>
-            {% comment %} <p></p>
-        <a role="button" class="btn btn-primary btn-lg" href="{% url 'loginuser' %}">Start your journey with us</a> {% endcomment %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <h2>Login</h2>
         </div>
     </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <form name='emplogin' action="{% url 'emplogin' %}" method ='POST'>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="empid">Employee ID</label>
+                    <input type="empid" name="empid" class="form-control" id="empid">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" id="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
 
+                        {% comment %} <div class="container text-center">
+            <h1>Number to Word Converter</h1>
+
+            <form name='converter' action="{% url 'convert' %}" onsubmit="return validate()" >
+            Number</br>
+                <input type="number" name="num" id = "num" required min=0> 
+                <br>
+                </br>
+
+
+                <input type="submit" value="Convert Number" onclick="myFunction()" class="btn btn-primary">
+            </form>
+            </div> {% endcomment %}
+            <hr>
+            {% comment %} <div class="text-center">
+                Need an account? <a href="{% url 'signupuser' %}">Sign Up here</a>
+            </div> {% endcomment %}
+        </div>
+    </div>
 {% endblock %}

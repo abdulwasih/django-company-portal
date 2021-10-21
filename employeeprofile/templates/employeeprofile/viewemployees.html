@@ -7,7 +7,7 @@
         <div class="col-md-7 text-center">
 
                  <h1>Employees list</h1>
-
+                <br>
                  <table style="width:100%">
                 <tr>
                     <th>First Name</th>
@@ -21,7 +21,7 @@
                 
                     <td>{{ tab.firstname}}</td>
                     <td>{{ tab.lastname}}</td>
-                    <td>{{ tab.photo}}</td>
+                    <td><img src="{{ tab.photo.url}} "></td>
                     <td>{{ tab.email}}</td>
                     <td>{{ tab.phone}}</td>
                     
