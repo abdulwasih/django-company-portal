@@ -13,7 +13,7 @@
                     {{ error }}
                 </div>
             {% endif %}
-            <form method="POST">
+            <form method="POST" action={% url 'registersuccess' %}>
                 {% csrf_token %}
                 <div class="form-group">
                     {{ form.as_p }}

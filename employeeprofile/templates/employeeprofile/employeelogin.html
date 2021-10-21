@@ -13,7 +13,7 @@
                     {{ error }}
                 </div>
             {% endif %}
-            <form name='emplogin' action="{% url 'emplogin' %}" method ='POST'>
+            <form name='emplogin' action="{% url 'emplogin' %}" method ='GET'>
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="empid">Employee ID</label>

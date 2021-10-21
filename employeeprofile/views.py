@@ -75,8 +75,13 @@ def viewemp(request):
 #     return render(request,'employeeprofile/profile.html')
 
 def emplogin(request):
-    user = Employee.objects.filter(empid=request.GET.get('empid') ,password=request.GET.get('password'))
+    user = Employee.objects.get(empid=request.GET['empid'] ,password=request.GET['password'])
+    print(request.GET)
     return render(request,'employeeprofile/profile.html',{'user':user})
+
+
+def registersuccess(request):
+    return render(request, 'employeeprofile/registersuccess.html')
 
 # def convert(request):
 
