@@ -16,7 +16,7 @@
             <form method="POST">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="username">Username</label>
+                    <label for="username">Email</label>
                     <input type="text" name="username" class="form-control" id="username">
                 </div>
                 <div class="form-group">
@@ -26,9 +26,9 @@
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
             <hr>
-            <div class="text-center">
+            {% comment %} <div class="text-center">
                 Need an account? <a href="{% url 'signupuser' %}">Sign Up here</a>
-            </div>
+            </div> {% endcomment %}
         </div>
     </div>
 {% endblock %}

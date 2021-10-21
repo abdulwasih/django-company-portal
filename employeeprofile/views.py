@@ -33,10 +33,14 @@ def loginuser(request):
             return render(request, 'employeeprofile/loginuser.html', {'form':AuthenticationForm(), 'error':'Username and password did not match'})
         else:
             login(request, user)
-            return redirect('home')
+            return redirect('loggeduser')
 
 @login_required
 def logoutuser(request):
     if request.method == 'POST':
         logout(request)
         return redirect('home')
+
+@login_required
+def loggeduser(request):
+    return render(request,'employeeprofile/loggeduser.html')
